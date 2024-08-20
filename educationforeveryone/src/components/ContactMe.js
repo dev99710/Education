@@ -1,45 +1,28 @@
-import React, { useState } from 'react';
-import '../styles/contactMe.css'; // Adjust the path to reflect the correct location
+// src/components/ContactMe.js
+import React from 'react';
+import '../styles/contactMe.css';
 
 const ContactMe = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert('Your message has been sent!');
-    };
-
-    return (
-        <div className="contact-container">
-            <h1>Contact Me</h1>
-            <form className="contact-form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={name}
-                    placeholder="Your Name"
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <input
-                    type="email"
-                    value={email}
-                    placeholder="Your Email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <textarea
-                    value={message}
-                    placeholder="Your Message"
-                    onChange={(e) => setMessage(e.target.value)}
-                    rows="5"
-                    required
-                ></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+  return (
+    <div className="container">
+      <h1>Contact Me</h1>
+      <form>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" required />
         </div>
-    );
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  );
 };
 
 export default ContactMe;

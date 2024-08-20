@@ -1,19 +1,24 @@
+// src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignOut from './SignOut';
-import '../styles/navbar.css';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
-const Navbar = () => {
+function NavBar() {
   return (
-    <nav className="navbar">
-      <ul>
-        <li><Link to="/videos">Online Education Videos</Link></li>
-        <li><Link to="/hackathons">Hackathon News</Link></li>
-        <li><Link to="/contact">Contact Me</Link></li>
-        <li><SignOut /></li>
-      </ul>
-    </nav>
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand as={Link} to="/">ED</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/videos">Online Education Videos</Nav.Link>
+            <Nav.Link as={Link} to="/hackathons">Hackathon News</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contact Me</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-};
+}
 
-export default Navbar;
+export default NavBar;
